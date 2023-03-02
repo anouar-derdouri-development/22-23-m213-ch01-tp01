@@ -8,7 +8,6 @@ import android.widget.EditText;
 public class Ex04Activity extends AppCompatActivity {
     Button btnEx04First, btnEx04Previous, btnEx04Next, btnEx04Last;
     EditText etEx04Number;
-    Integer number = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +20,23 @@ public class Ex04Activity extends AppCompatActivity {
         btnEx04Last = findViewById(R.id.btnEx04Last);
         etEx04Number = findViewById(R.id.etEx04Number);
 
-        btnEx04Last.setOnClickListener(view -> {
-            number = 10;
-            etEx04Number.setText(number.toString());
+        btnEx04First.setOnClickListener(view -> {
+            etEx04Number.setText("1");
         });
+
+        btnEx04Previous.setOnClickListener(view -> {
+            if (Integer.parseInt(etEx04Number.getText().toString()) > 1)
+                etEx04Number.setText(String.valueOf(Integer.parseInt(etEx04Number.getText().toString()) - 1));
+        });
+
+        btnEx04Next.setOnClickListener(view -> {
+            if (Integer.parseInt(etEx04Number.getText().toString()) < 10)
+                etEx04Number.setText(String.valueOf(Integer.parseInt(etEx04Number.getText().toString()) + 1));
+        });
+
+        btnEx04Last.setOnClickListener(view -> {
+            etEx04Number.setText("10");
+        });
+
     }
 }
