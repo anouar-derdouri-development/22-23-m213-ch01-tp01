@@ -8,6 +8,7 @@ import android.widget.EditText;
 public class Ex04Activity extends AppCompatActivity {
     Button btnEx04First, btnEx04Previous, btnEx04Next, btnEx04Last;
     EditText etEx04Number;
+    Integer number = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,21 +22,27 @@ public class Ex04Activity extends AppCompatActivity {
         etEx04Number = findViewById(R.id.etEx04Number);
 
         btnEx04First.setOnClickListener(view -> {
-            etEx04Number.setText("1");
+            number = 1;
+            etEx04Number.setText(number.toString());
         });
 
         btnEx04Previous.setOnClickListener(view -> {
-            if (Integer.parseInt(etEx04Number.getText().toString()) > 1)
-                etEx04Number.setText(String.valueOf(Integer.parseInt(etEx04Number.getText().toString()) - 1));
+            if (number > 1) {
+                number--;
+            }
+            etEx04Number.setText(number.toString());
         });
 
         btnEx04Next.setOnClickListener(view -> {
-            if (Integer.parseInt(etEx04Number.getText().toString()) < 10)
-                etEx04Number.setText(String.valueOf(Integer.parseInt(etEx04Number.getText().toString()) + 1));
+            if (number < 10) {
+                number++;
+            }
+            etEx04Number.setText(number.toString());
         });
 
         btnEx04Last.setOnClickListener(view -> {
-            etEx04Number.setText("10");
+            number = 10;
+            etEx04Number.setText(number.toString());
         });
 
     }
