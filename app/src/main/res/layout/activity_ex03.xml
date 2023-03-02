@@ -7,9 +7,10 @@
     tools:context=".Ex03Activity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnEx03Blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="colorBackground"
         android:text="Blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +23,7 @@
         android:id="@+id/btnEx03Red"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="colorBackground"
         android:text="Red"
         app:layout_constraintBottom_toTopOf="@+id/btnEx03Green"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,8 +36,9 @@
         android:id="@+id/btnEx03Green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="colorBackground"
         android:text="Green"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btnEx03Blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
