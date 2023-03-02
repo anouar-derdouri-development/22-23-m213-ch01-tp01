@@ -1,7 +1,9 @@
 package com.example.m213_ch01_tp01_crj_trainees;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -21,29 +23,9 @@ public class Ex04Activity extends AppCompatActivity {
         btnEx04Last = findViewById(R.id.btnEx04Last);
         etEx04Number = findViewById(R.id.etEx04Number);
 
-        btnEx04First.setOnClickListener(view -> {
-            number = 1;
-            etEx04Number.setText(number.toString());
-        });
-
-        btnEx04Previous.setOnClickListener(view -> {
-            if (number > 1) {
-                number--;
-            }
-            etEx04Number.setText(number.toString());
-        });
-
-        btnEx04Next.setOnClickListener(view -> {
-            if (number < 10) {
-                number++;
-            }
-            etEx04Number.setText(number.toString());
-        });
-
-        btnEx04Last.setOnClickListener(view -> {
-            number = 10;
-            etEx04Number.setText(number.toString());
-        });
-
+        btnEx04First.setOnClickListener(new Counter(Position.FIRST, etEx04Number));
+        btnEx04Previous.setOnClickListener(new Counter(Position.PREVIOUS, etEx04Number));
+        btnEx04Next.setOnClickListener(new Counter(Position.NEXT, etEx04Number));
+        btnEx04Last.setOnClickListener(new Counter(Position.LAST, etEx04Number));
     }
 }
